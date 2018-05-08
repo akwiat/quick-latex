@@ -2,6 +2,7 @@ import argparse
 import os
 
 from string import Template
+from pkg_resources import resource_exists
 
 parser = argparse.ArgumentParser(description='quick-compile a problem')
 parser.add_argument('filename', type=str, help='name of the .tex file to compile')
@@ -23,9 +24,11 @@ if __name__ == "__main__":
 
     base, ext = os.path.splitext(args.filename)
     outfile = os.path.join(tdir, base + "-main" + ext)
-    with open("quick_template.tex") as f:
-        t = Template(f.read())
-        data = t.substitute(filename=args.filename)
-
-        with open(outfile, "w") as outf:
-            f.write(data)
+    e = resource_exists(__name__, "quick_template.tex")
+    print(e)
+    # with open("quick_template.tex") as f:
+    #     t = Template(f.read())
+    #     data = t.substitute(filename=args.filename)
+    #
+    #     with open(outfile, "w") as outf:
+    #         f.write(data)
