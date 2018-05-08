@@ -40,7 +40,7 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.0.1.dev1',  # Required
+    version='1.0.1.dev2',  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
@@ -154,7 +154,7 @@ setup(
     # If using Python 2.6 or earlier, then these have to be included in
     # MANIFEST.in as well.
     package_data={  # Optional
-        'quick_template.tex': ['package_data.dat'],
+        '': ['quick_template.tex'],
     },
 
     # Although 'package_data' is the preferred approach, in some case you may
