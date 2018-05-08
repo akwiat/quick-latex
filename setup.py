@@ -37,7 +37,7 @@ setup(
     name='quick_latex',  # Required
 
     # include_package_data=True,
-    data_files=[("", "quick_template.tex")]
+    data_files=[("", "quick_template.tex")],
     # Versions should comply with PEP 440:
     # https://www.python.org/dev/peps/pep-0440/
     #
