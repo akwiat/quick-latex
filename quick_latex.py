@@ -26,6 +26,7 @@ if __name__ == "__main__":
     outfile = os.path.join(tdir, base + "-main" + ext)
     e = resource_exists("quick_latex", "quick_template.tex")
     print(e)
+    print("current:", dir)
     with open("quick_template.tex") as f:
         t = Template(f.read())
         data = t.substitute(filename=args.filename)
