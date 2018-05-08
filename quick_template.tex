@@ -1,0 +1,50 @@
+\documentclass[11pt,twoside]{article}
+\usepackage[tmargin=2.5cm,bmargin=2.5cm,lmargin=2cm,rmargin=2cm]{geometry}
+% \usepackage{graphicx,float}
+% \usepackage{tabularx}
+% \usepackage{booktabs}
+\usepackage{caption}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{framed}
+\usepackage[svgnames]{xcolor}
+\usepackage{comment}
+% \usepackage{placeins}
+%\usepackage[normalem]{ulem}
+
+\newcommand{\hint}[1]{(\textit{Hint: #1})}
+\newcommand{\emphmore}[1]{\textbf{#1}}
+\newcommand{\emphmost}[1]{\textbf{\MakeUppercase{#1}}}
+
+\newcommand{\given}[1]{\widetilde{#1}}
+\newcommand{\unknown}[1]{\widetilde{#1}}
+\newcommand{\half}{\frac{1}{2}}
+
+\newcommand{\positionequation}{x = x_0 + v_0 t + \frac{1}{2} a t^2}
+\newcommand{\velocityequation}{v = v_0 + a t}
+
+\newcommand{\accunits}{\text{m/s}^2}
+\newcommand{\posunits}{\text{m}}
+\newcommand{\velunits}{\text{m/s}}
+\newcommand{\timeunits}{\text{s}}
+\newcommand{\massunits}{\text{kg}}
+\newcommand{\energyunits}{\text{J}}
+\newcommand{\forceunits}{\text{N}}
+
+
+\newif\ifsolution
+%%%%%%%%%%--- Set solutions ON or OFF here.----- %%%%%%%%%%%%%%%
+\solutiontrue
+\solutionfalse
+
+\ifsolution
+  \newenvironment{solution}{\color{DarkRed}\begin{leftbar}}{\end{leftbar}\ignorespacesafterend}
+\else
+  \excludecomment{solution}
+\fi
+
+
+
+\begin{document}
+  \input{$filename}
+\end{document}
