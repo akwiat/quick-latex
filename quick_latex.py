@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     base, ext = os.path.splitext(args.filename)
     outfile = os.path.join(tdir, base + "-main" + ext)
-    e = resource_exists(__name__, "quick_template.tex")
+    e = resource_exists("quick_latex", "quick_template.tex")
     print(e)
     # with open("quick_template.tex") as f:
     #     t = Template(f.read())
