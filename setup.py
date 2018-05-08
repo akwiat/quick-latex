@@ -32,7 +32,11 @@ setup(
     # There are some restrictions on what makes a valid project name
     # specification here:
     # https://packaging.python.org/specifications/core-metadata/#name
+
+
     name='quick_latex',  # Required
+
+    include_package_data=True,
 
     # Versions should comply with PEP 440:
     # https://www.python.org/dev/peps/pep-0440/
@@ -40,7 +44,7 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.0.1.dev4',  # Required
+    version='1.0.1.dev5',  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
@@ -153,9 +157,9 @@ setup(
     #
     # If using Python 2.6 or earlier, then these have to be included in
     # MANIFEST.in as well.
-    package_data={  # Optional
-        '': ['quick_template.tex'],
-    },
+    # package_data={  # Optional
+    #     '': ['quick_template.tex'],
+    # },
 
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages. See:
