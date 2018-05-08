@@ -37,7 +37,7 @@ setup(
     name='quick_latex',  # Required
 
     # include_package_data=True,
-    data_files=[("", ["quick_template.tex"])],
+    # data_files=[("", ["quick_template.tex"])],
     # Versions should comply with PEP 440:
     # https://www.python.org/dev/peps/pep-0440/
     #
@@ -157,9 +157,9 @@ setup(
     #
     # If using Python 2.6 or earlier, then these have to be included in
     # MANIFEST.in as well.
-    # package_data={  # Optional
-    #     '': ['quick_template.tex'],
-    # },
+    package_data={  # Optional
+        'quick_latex': ['quick_template.tex'],
+    },
 
     # Although 'package_data' is the preferred approach, in some case you may
     # need to place data files outside of your packages. See:
