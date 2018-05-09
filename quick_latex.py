@@ -32,5 +32,6 @@ if __name__ == "__main__":
         t = Template(f.read())
         data = t.substitute(filename=args.filename)
 
+        print("writing to:", outfile)
         with open(outfile, "w") as outf:
-            f.write(data)
+            outf.write(data)
