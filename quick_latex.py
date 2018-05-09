@@ -19,18 +19,21 @@ if __name__ == "__main__":
     args = parser.parse_args()
     print("filename: {}".format(args.filename))
     dir = os.getcwd()
-    tdir = os.path.join(dir, "tex")
+    fullpath = os.path.join(dir, args.filename)
+    f_dir, fname = os.path.split(fullpath)
+
+    tdir = os.path.join(f_dir, "tex")
     ensure_dir(tdir)
 
-    projdir = os.path.dirname(__file__)
-    base, ext = os.path.splitext(args.filename)
+    packagedir = os.path.dirname(__file__)
+    base, ext = os.path.splitext(fname)
     outfile = os.path.join(tdir, base + "-main" + ext)
     s = resource_string("quick_latex", "quick_template.tex")
     # print(e)
     print("current:", dir)
-    with open(os.path.join(projdir, "quick_template.tex")) as f:
+    with open(os.path.join(packagedir, "quick_template.tex")) as f:
         t = Template(f.read())
-        data = t.substitute(filename=args.filename)
+        data = t.substitute(filename=os.path.relpath(fullpath, tdir))
 
         print("writing to:", outfile)
         with open(outfile, "w") as outf:
