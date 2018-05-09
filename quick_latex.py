@@ -26,7 +26,7 @@ if __name__ == "__main__":
     base, ext = os.path.splitext(args.filename)
     outfile = os.path.join(tdir, base + "-main" + ext)
     s = resource_string("quick_latex", "quick_template.tex")
-    print(e)
+    # print(e)
     print("current:", dir)
     with open(os.path.join(projdir, "quick_template.tex")) as f:
         t = Template(f.read())
