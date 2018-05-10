@@ -15,6 +15,14 @@ def ensure_dir(d):
     except:
         pass
 
+def compile(f):
+    d, base = os.path.split(f)
+    os.chdir(d)
+    cmd = "pdflatex "+base+" &> log.txt"
+    print("running:", cmd)
+    r = subprocess.run(cmd)
+    print("output:", r.returncode)
+
 if __name__ == "__main__":
     args = parser.parse_args()
     print("filename: {}".format(args.filename))
@@ -38,3 +46,5 @@ if __name__ == "__main__":
         print("writing to:", outfile)
         with open(outfile, "w") as outf:
             outf.write(data)
+
+    compile(outfile)
