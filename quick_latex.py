@@ -19,10 +19,10 @@ def ensure_dir(d):
 def compile(f):
     d, base = os.path.split(f)
     os.chdir(d)
-    # cmd = "pdflatex "+base+" &> log.txt"
-    cmd = "ls > log.txt"
+    cmd = "pdflatex "+base+" &> log.txt"
+    # cmd = "ls > log.txt"
     print("running:", cmd)
-    r = subprocess.run(cmd)
+    r = subprocess.run(cmd, shell=True)
     print("output:", r.returncode)
 
 if __name__ == "__main__":
