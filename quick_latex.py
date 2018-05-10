@@ -1,7 +1,7 @@
 import argparse
 import os
 import subprocess
-
+import shlex
 from string import Template
 from pkg_resources import resource_string
 
@@ -19,7 +19,7 @@ def ensure_dir(d):
 def compile(f):
     d, base = os.path.split(f)
     os.chdir(d)
-    cmd = "pdflatex "+base+" &> log.txt"
+    cmd = "pdflatex {} &> log.txt".format(shlex.quote(base))
     # cmd = "ls > log.txt"
     print("running:", cmd)
     r = subprocess.run(cmd, shell=True)
