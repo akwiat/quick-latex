@@ -50,3 +50,6 @@ if __name__ == "__main__":
             outf.write(data)
 
     compile(outfile)
+
+def main():
+    print("main")

@@ -127,7 +127,7 @@ setup(
     # the `py_modules` argument instead as follows, which will expect a file
     # called `my_module.py` to exist:
     #
-    py_modules=["quick_latex"],
+    # py_modules=["quick_latex"],
     #
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
 
@@ -175,11 +175,11 @@ setup(
     #
     # For example, the following would provide a command called `sample` which
     # executes the function `main` from this package when invoked:
-    # entry_points={  # Optional
-    #     'console_scripts': [
-    #         'sample=sample:main',
-    #     ],
-    # },
+    entry_points={  # Optional
+        'entry_points': [
+            'quick_latex=quick_latex.quick_latex:main',
+        ],
+    },
 
     # List additional URLs that are relevant to your project as a dict.
     #
