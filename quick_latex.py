@@ -1,5 +1,6 @@
 import argparse
 import os
+import shutil
 import subprocess
 import shlex
 from string import Template
@@ -50,6 +51,12 @@ def main():
             outf.write(data)
 
     compile(outfile)
+
+    pdir = os.path.join(f_dir, "pdf")
+    ensure_dir(pdir)
+
+    outbase, ext = os.path.splitext(outfile)
+    shutil.move(outbase+".pdf", os.path.join(pdir, base + ".pdf"))
 
 if __name__ == "__main__":
     main()
