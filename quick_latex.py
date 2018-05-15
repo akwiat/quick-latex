@@ -25,7 +25,7 @@ def compile(f):
     r = subprocess.run(cmd, shell=True)
     print("output:", r.returncode)
 
-if __name__ == "__main__":
+def main():
     args = parser.parse_args()
     print("filename: {}".format(args.filename))
     dir = os.getcwd()
@@ -51,5 +51,5 @@ if __name__ == "__main__":
 
     compile(outfile)
 
-def main():
-    print("main")
+if __name__ == "__main__"
+    main()
