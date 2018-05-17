@@ -59,7 +59,8 @@ def main():
     ensure_dir(pdir)
 
     outbase, ext = os.path.splitext(outfile)
-    shutil.move(outbase+".pdf", os.path.join(pdir, base + ".pdf"))
+    final_name = base + ".pdf" if not args.solutions else base + "-solutions.pdf"
+    shutil.move(outbase+".pdf", os.path.join(pdir, final_name))
 
 if __name__ == "__main__":
     main()
