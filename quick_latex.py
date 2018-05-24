@@ -8,6 +8,7 @@ from pkg_resources import resource_string
 
 parser = argparse.ArgumentParser(description='quick-compile a problem')
 parser.add_argument('filename', type=str, help='name of the .tex file to compile')
+parser.add_argument('-s', '--solutions', action='store_true')
 # parser.add_argument('worksheet_name', nargs='?', type=str, help='name of the worksheet')
 # parser.add_argument('--all', action='store_true', help='update all worksheets')
 
@@ -28,6 +29,7 @@ def compile(f):
 
 def main():
     args = parser.parse_args()
+    print("solutions? {}".format(args.solutions))
     print("filename: {}".format(args.filename))
     dir = os.getcwd()
     fullpath = os.path.join(dir, args.filename)
@@ -44,7 +46,8 @@ def main():
     print("current:", dir)
     with open(os.path.join(packagedir, "quick_template.tex")) as f:
         t = Template(f.read())
-        data = t.substitute(filename=os.path.relpath(fullpath, tdir))
+        sflag = r'\solutiontrue' if args.solutions else r'\solutionfalse'
+        data = t.substitute(filename=os.path.relpath(fullpath, tdir), solutions_flag = sflag)
 
         print("writing to:", outfile)
         with open(outfile, "w") as outf:
@@ -56,7 +59,8 @@ def main():
     ensure_dir(pdir)
 
     outbase, ext = os.path.splitext(outfile)
-    shutil.move(outbase+".pdf", os.path.join(pdir, base + ".pdf"))
+    final_name = base + ".pdf" if not args.solutions else base + "-solutions.pdf"
+    shutil.move(outbase+".pdf", os.path.join(pdir, final_name))
 
 if __name__ == "__main__":
     main()
